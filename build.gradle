@@ -1,0 +1,24 @@
+buildscript {
+	ext {
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+jar {
+    baseName = 'learn_rxjava'
+    version = '1.0.0-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+	compile 'io.reactivex:rxjava:1.0.12'
+
+}

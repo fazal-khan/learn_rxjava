@@ -17,21 +17,25 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Main {
 
     public static void main(String[] args) {
-        test1();
+        //test1();
+        //test2();
+        //test3();
+        //test4();
+        test5();
     }
 
     public static void test5() {
-        log("test zip");
-        Observable.zip(Observable.from(Arrays.asList(1, 3, 5, 7, 9)),
-                Observable.from(Arrays.asList(2,4,6,8,10)), (x,y)-> "(" + x + "," + y + ")").subscribe(Main::print);
+        log("test zip of two observables with equal elements from both lists");
+        Observable.zip( Observable.from(Arrays.asList(1, 3, 5, 7, 9)),
+                Observable.from(Arrays.asList(2,4,6,8,10)), (x,y)-> "(" + x + "," + y + ")" ).subscribe(Main::print);
         println("");
 
-        log("test zipWith");
+        log("test zipWith with unequal elements from lists");
         Observable.from(Arrays.asList(1, 3, 5)).zipWith(Observable.from(Arrays.asList(2,4,6,7)), (x,y) -> "("+ x +"," + y +")").subscribe(Main::print);
         println("");
 
 
-        log("retry stuff");
+        log("test retry stuff");
         AtomicInteger i = new AtomicInteger(0);
         Observable<String> testRetry = Observable.create(subs-> {
             if( i.get() < 3) {
