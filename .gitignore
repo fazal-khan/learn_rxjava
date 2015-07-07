@@ -1,0 +1,7 @@
+.project
+.classpath
+.gradle/
+.settings
+.idea
+target/
+test_rxjava.iml
